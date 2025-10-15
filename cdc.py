@@ -62,6 +62,15 @@ def main():
             else:
                 print("Error: stack underflow")
                 return
+            
+        elif cmd == "sub":
+            if len(stack) >= 2:
+                total = stack[-2] - stack[-1]
+                stack.clear()
+                stack.append(total)
+            else:
+                print("Error: stack underflow")
+                return
 
         i += 1
 
