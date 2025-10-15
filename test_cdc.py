@@ -72,3 +72,11 @@ def test_sub_cplx1():
         text=True
     )
     assert result.stdout.strip("\n") == "2 + j6"
+
+def test_sub_err1():
+    result = subprocess.run(
+        ["python3", "cdc.py", "sub"],
+        capture_output=True,
+        text=True
+    )
+    assert result.stdout.strip("\n") == "Error: stack underflow"
