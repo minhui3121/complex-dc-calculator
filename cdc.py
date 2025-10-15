@@ -35,7 +35,7 @@ def main():
     i = 0
 
     while i < len(args):
-        cmd = args[i]
+        cmd = args[i].lower()
 
         if cmd == "push":
             # Collect tokens after push until next command or end
