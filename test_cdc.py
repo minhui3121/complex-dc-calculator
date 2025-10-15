@@ -80,3 +80,11 @@ def test_sub_err1():
         text=True
     )
     assert result.stdout.strip("\n") == "Error: stack underflow"
+
+def test_case_insensitivity1():
+    result = subprocess.run(
+        ["python3", "cdc.py", "PUSH", "5", "push", "3", "add", "POP"],
+        capture_output=True,
+        text=True
+    )
+    assert result.stdout.strip("\n") == "8 + j0"
