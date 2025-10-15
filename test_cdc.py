@@ -64,3 +64,11 @@ def test_sub_real1():
         text=True
     )
     assert result.stdout.strip("\n") == "3 + j0"
+
+def test_sub_cplx1():
+    result = subprocess.run(
+        ["python3", "cdc.py", "push", "3+j4", "push", "1-j2", "sub", "pop"],
+        capture_output=True,
+        text=True
+    )
+    assert result.stdout.strip("\n") == "2 + j6"
