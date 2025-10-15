@@ -56,8 +56,9 @@ def main():
 
         elif cmd == "add":
             if len(stack) >= 2:
-                total = sum(stack)
-                stack.clear()
+                total = stack[-2] + stack[-1]
+                stack.pop()
+                stack.pop()
                 stack.append(total)
             else:
                 print("Error: stack underflow")
@@ -66,7 +67,8 @@ def main():
         elif cmd == "sub":
             if len(stack) >= 2:
                 total = stack[-2] - stack[-1]
-                stack.clear()
+                stack.pop()
+                stack.pop()
                 stack.append(total)
             else:
                 print("Error: stack underflow")
