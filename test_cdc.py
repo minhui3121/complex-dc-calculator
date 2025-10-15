@@ -56,3 +56,11 @@ def test_add_err1():
         text=True
     )
     assert result.stdout.strip("\n") == "Error: stack underflow"
+
+def test_sub_real1():
+    result = subprocess.run(
+        ["python3", "cdc.py", "push", "5", "push", "2", "sub", "pop"],
+        capture_output=True,
+        text=True
+    )
+    assert result.stdout.strip("\n") == "3 + j0"
