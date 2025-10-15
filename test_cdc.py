@@ -24,3 +24,11 @@ def test_push_cplx2():
         text=True
     )
     assert result.stdout.strip("\n") == "3 + j4"
+
+def test_pop_err1():
+    result = subprocess.run(
+        ["python3", "cdc.py", "pop"],
+        capture_output=True,
+        text=True
+    )
+    assert result.stdout.strip("\n") == "Error: stack underflow"
