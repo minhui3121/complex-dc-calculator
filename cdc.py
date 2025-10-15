@@ -1,14 +1,27 @@
 import sys
+from collections import deque
 
 def main():
-    number = sys.argv[2:len(sys.argv)-1] # Exclude push and pop
-    number = "".join(number)
-    if "j" not in number:
-        number = number + " + j0"
+    stack = deque()
+    args = sys.argv[1:]
+    result = ""
+    for i in range(len(args)):
+        if args[i] == "push":
+            number = args[i+1:len(args)-1]
+            number = "".join(number)
+            stack.append(number)
+        elif args[i] == "pop":
+            try:
+                result = stack.pop()
+            except IndexError:
+                print("Error: stack underflow")
+                return
+    if "j" not in result:
+        result = result + " + j0"
     else:
-        number = number.replace("-", " -").replace("+", " +").replace("j", " j")
-        number = number.strip()
-    print(number)
+        result = result.replace("-", " -").replace("+", " +").replace("j", " j")
+        result = result.strip()
+    print(result)
     
 
 if __name__ == "__main__":
