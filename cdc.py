@@ -55,7 +55,7 @@ def main():
                 return
 
         elif cmd == "add":
-            if stack:
+            if len(stack) >= 2:
                 total = sum(stack)
                 stack.clear()
                 stack.append(total)
